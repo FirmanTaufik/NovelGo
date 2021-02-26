@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BoxNovel</string>
+
+    <string name="search_song">Search Novel</string>
+    <string name="tap_once_again">Tap Once Again to Close App</string>
+<!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="id_banner">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="interstitial_full_screen">ca-app-pub-3940256099942544/1033173712</string>-->
+
+    <string name="app_id">ca-app-pub-5923406750110132~6899023025</string>
+    <string name="id_banner">ca-app-pub-5923406750110132/8578936201</string>
+    <string name="interstitial_full_screen">ca-app-pub-5923406750110132/8039880150</string>
+
+</resources>

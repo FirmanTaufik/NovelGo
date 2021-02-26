@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DetailActivity">
+    <RelativeLayout
+        android:layout_above="@+id/relativeBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:adjustViewBounds="true"
+            android:transitionName="example_transition"
+            android:id="@+id/imageView"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeContent"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:background="@drawable/ic_rectangle_1"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="320dp">
+            <TextView
+                android:textColor="@color/colorTextPrimaryHead"
+                android:text="@string/app_name"
+                android:id="@+id/textViewTitle"
+                style="@style/TextAppearance.AppCompat.SearchResult.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/relativeRating"
+                android:layout_below="@+id/textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="italic"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/textViewGenre"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/ratingBar"
+                    android:textSize="15dp"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Title"
+                    android:textColor="@color/colorTextPrimaryHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:visibility="gone"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:progressTint="@color/colorRatingGold"
+                    android:progressBackgroundTint="@color/colorRatingGold"
+                    android:secondaryProgressTint="@color/colorRatingGold"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/ratingBar"
+                    style = "?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:stepSize="0.5"/>
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/relativeRating"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewDeskription"
+                    android:textColor="@color/colorTextPrimaryBody"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </ScrollView>
+            <ProgressBar
+                android:id="@+id/progressBarDesc"
+                android:layout_centerInParent="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_above="@+id/adView"
+        android:visibility="gone"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/relativeBottom"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/imageButton"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_list"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_round"
+            android:id="@+id/buttonChapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="List Chapter" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_heart"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_round"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <include
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/layout_include"
+        layout="@layout/layout_list"/>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/id_banner">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>

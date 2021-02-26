@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/parent"
+    android:background="@android:color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_above="@+id/adView"
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/colorTextPrimaryHead"
+                        android:layout_alignParentLeft="true"
+                        android:textStyle="bold"
+                        android:id="@+id/textViewHeader"
+                        android:text="Popular Novel"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textColor="@color/colorTextPrimaryBody"
+                        android:layout_below="@+id/textViewHeader"
+                        android:text="Never Miss What's Popular"
+                        style="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:id="@+id/imageViewSearch"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_toLeftOf="@id/imageViewBookmark"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_search"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:tint="@color/colorTextPrimaryHead" />
+                    <ImageView
+                        android:id="@+id/imageViewBookmark"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_toLeftOf="@id/imageViewBurger"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_bookmark"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:tint="@color/colorTextPrimaryHead" />
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        app:tint="@color/colorTextPrimaryHead"
+                        android:id="@+id/imageViewBurger"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_menu"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:clickable="false"
+                    android:id="@+id/recyclerViewPopular"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <RelativeLayout
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/colorTextPrimaryHead"
+                        android:layout_alignParentLeft="true"
+                        android:textStyle="bold"
+                        android:id="@+id/textViewHeaderUpdate"
+                        android:text="Latest Update"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textColor="@color/colorTextPrimaryBody"
+                        android:layout_below="@+id/textViewHeaderUpdate"
+                        android:text="Notice The Latest Chapter"
+                        style="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/textViewMore"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/arrowLeftSkip"
+                        android:textColor="@color/colorTextPrimaryHead"
+                        android:layout_below="@+id/textViewHeaderUpdate"
+                        android:text="More"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        app:tint="@color/colorTextPrimaryHead"
+                        android:id="@+id/arrowLeftSkip"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_arrow_skip_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <include
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/layout_include"
+        layout="@layout/layout_list"/>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/id_banner">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>
